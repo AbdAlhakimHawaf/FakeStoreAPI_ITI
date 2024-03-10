@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "497395d6-ac9a-4e06-b4f0-b2c540c2868e",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27584831",
+		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-497395d6-ac9a-4e06-b4f0-b2c540c2868e?action=share&source=collection_link&creator=27584831"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"console.log(response[0]);\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Mens Cotton Jacket (ID,Price)\", function () {\r",
+							"    pm.expect(response[2].id).to.eql(3);\r",
+							"     pm.expect(response[2].price).to.eql(55.99);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Assertion Of White Gold Plated Princess (ID,Description)\", function () {\r",
+							"    for(let Data of response){\r",
+							"        if(Data.title == \"White Gold Plated Princess\"){\r",
+							"            pm.expect(Data.id).to.eql(7);\r",
+							"            pm.expect(Data.description).to.eql(\"Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...\");\r",
+							"        }\r",
+							"\r",
+							"    }   \r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product #20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Check ID of Iteam #20\", function () {\r",
+							"    pm.expect(response.id).to.eql(20);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/20"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Only 3 Results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Quantity Of Getted Items is Limited To 3\", function () {\r",
+							"    pm.expect(response.length).to.eql(3);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakestoreapi.com/products?limit=3",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Assertion Of Categories\", function () {\r",
+							"       for(let data of response){\r",
+							"           if(data == \"electonics\")\r",
+							"           pm.expect(data).to.eql(\"electonics\")\r",
+							"       }\r",
+							"       for(let data of response){\r",
+							"           if(data == \"jewelery\")\r",
+							"           pm.expect(data).to.eql(\"jewelery\")\r",
+							"       }\r",
+							"       for(let data of response){\r",
+							"           if(data == \"men's clothing\")\r",
+							"           pm.expect(data).to.eql(\"men's clothing\")\r",
+							"       }\r",
+							"       for(let data of response){\r",
+							"           if(data == \"women's clothing\")\r",
+							"           pm.expect(data).to.eql(\"women's clothing\")\r",
+							"       }\r",
+							"\r",
+							"        });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Jewelery Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"console.log(response[0].category);\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Getted Data Category is Jewelery\", function () {\r",
+							"    for(let data of response){\r",
+							"        if(data.category == \"jewelery\"){\r",
+							"            pm.expect(data.category).to.eql(\"jewelery\");\r",
+							"        }\r",
+							"    }\r",
+							"    //if not jewelery found this assertion will fail.  \r",
+							"    for(let data of response){\r",
+							"        if(data.category != \"jewelery\"){\r",
+							"            pm.expect(data.category).to.eql(\"jewelery\");\r",
+							"        }\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/category/jewelery"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Posted Data\", function () {\r",
+							"    pm.expect(response.title).to.eql(\"test product\");\r",
+							"     pm.expect(response.price).to.eql(\"13.5\");\r",
+							"      pm.expect(response.description).to.eql(\"lorem ipsum set\");\r",
+							"       pm.expect(response.image).to.eql(\"https://i.pravatar.cc\");\r",
+							"       pm.expect(response.category).to.eql(\"electronic\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                    \"title\": \"test product\",\r\n                    \"price\": \"13.5\",\r\n                    \"description\": \"lorem ipsum set\",\r\n                    \"image\": \"https://i.pravatar.cc\",\r\n                    \"category\": \"electronic\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Updating Product #8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Updated Data\", function () {\r",
+							"   // pm.expect(response.id).to.eql(\"7\");\r",
+							"    pm.expect(response.title).to.eql(\"test product\");\r",
+							"     pm.expect(response.price).to.eql(\"13.5\");\r",
+							"      pm.expect(response.description).to.eql(\"lorem ipsum set\");\r",
+							"       pm.expect(response.image).to.eql(\"https://i.pravatar.cc\");\r",
+							"       pm.expect(response.category).to.eql(\"electronic\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test product\",\r\n                        \"price\": \"13.5\",\r\n                        \"description\": \"lorem ipsum set\",\r\n                        \"image\": \"https://i.pravatar.cc\",\r\n                        \"category\": \"electronic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/products/7"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product #6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/6"
+			},
+			"response": []
+		}
+	]
+}

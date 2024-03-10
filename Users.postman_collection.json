@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "886c92a7-94fa-4900-87e4-e7e78522418c",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27584831",
+		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-886c92a7-94fa-4900-87e4-e7e78522418c?action=share&source=collection_link&creator=27584831"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Gotten Users Data\", function () {\r",
+							"    for(let data of response){\r",
+							"        if(data.id == 8){\r",
+							"            pm.expect(data.email).to.eql(\"william@gmail.com\");\r",
+							"            pm.expect(data.name.firstname).to.eql(\"william\");\r",
+							"        }\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Gotten User #1 Data\", function () {\r",
+							"        if(data.id == 1){\r",
+							"            pm.expect(data.email).to.eql(\"john@gmail.com\");\r",
+							"            pm.expect(data.name.firstname).to.eql(\"john\");\r",
+							"        }\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Only 4 Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Quantity Of Getted Items is Limited To 3\", function () {\r",
+							"    pm.expect(response.length).to.eql(4);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakestoreapi.com/users?limit=4",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users Sorted Desc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Users Usernames IS Sorted in Desc\", function () {\r",
+							"    pm.expect(response[0].username).to.eql(\"jimmie_k\");\r",
+							"    pm.expect(response[9].username).to.eql(\"johnd\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakestoreapi.com/users?sort=desc",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Posted Data\", function () {\r",
+							"    pm.expect(response.id).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 11,\r\n    \"username\" : \"ABC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User #7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Updated Data\", function () {\r",
+							"    pm.expect(response.email).to.eql(\"John@gmail.com\");\r",
+							"    pm.expect(response.password).to.eql(\"m38rmF$\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                        \"email\":\"John@gmail.com\",\r\n                        \"username\":\"johnd\",\r\n                        \"password\":\"m38rmF$\",\r\n                        \"name\":{\r\n                            \"firstname\":\"John\",\r\n                            \"lastname\":\"Doe\"\r\n                        },\r\n                        \"address\":{\r\n                            \"city\":\"kilcoole\",\r\n                            \"street\":\"7835 new road\",\r\n                            \"number\":3,\r\n                            \"zipcode\":\"12926-3874\",\r\n                            \"geolocation\":{\r\n                                \"lat\":\"-37.3159\",\r\n                                \"long\":\"81.1496\"\r\n                            }\r\n                        },\r\n                        \"phone\":\"1-570-236-7033\"\r\n                    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/users/7"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User #6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});\r",
+							"pm.test(\"Assertion Of User's Deleted Data\", function () {\r",
+							"    pm.expect(response.id).to.eql(6);\r",
+							"    pm.expect(response.username).to.eql(\"david_r\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://fakestoreapi.com/users/6"
+			},
+			"response": []
+		}
+	]
+}

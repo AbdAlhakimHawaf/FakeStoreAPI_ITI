@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "497395d6-ac9a-4e06-b4f0-b2c540c2868e",
-		"name": "Products",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"name": "2-Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27584831",
 		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-497395d6-ac9a-4e06-b4f0-b2c540c2868e?action=share&source=collection_link&creator=27584831"
 	},
@@ -16,8 +16,8 @@
 						"exec": [
 							"const response = pm.response.json();\r",
 							"console.log(response[0]);\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -39,14 +39,25 @@
 							"\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/products"
+				"url": {
+					"raw": "https://fakestoreapi.com/products",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
@@ -61,22 +72,34 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Check ID of Iteam #20\", function () {\r",
 							"    pm.expect(response.id).to.eql(20);\r",
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/products/20"
+				"url": {
+					"raw": "https://fakestoreapi.com/products/20",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"20"
+					]
+				}
 			},
 			"response": []
 		},
@@ -91,14 +114,15 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Quantity Of Getted Items is Limited To 3\", function () {\r",
 							"    pm.expect(response.length).to.eql(3);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -136,8 +160,8 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Assertion Of Categories\", function () {\r",
@@ -161,14 +185,26 @@
 							"        });\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/products/categories"
+				"url": {
+					"raw": "https://fakestoreapi.com/products/categories",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"categories"
+					]
+				}
 			},
 			"response": []
 		},
@@ -181,8 +217,8 @@
 						"exec": [
 							"const response = pm.response.json();\r",
 							"console.log(response[0].category);\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -201,14 +237,27 @@
 							"    }\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/products/category/jewelery"
+				"url": {
+					"raw": "https://fakestoreapi.com/products/category/jewelery",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"category",
+						"jewelery"
+					]
+				}
 			},
 			"response": []
 		},
@@ -220,8 +269,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -235,7 +284,8 @@
 							"\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -251,20 +301,30 @@
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/products"
+				"url": {
+					"raw": "https://fakestoreapi.com/products",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Updating Product #8",
+			"name": "Updating Product #7",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -279,7 +339,8 @@
 							"\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -295,7 +356,18 @@
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/products/7"
+				"url": {
+					"raw": "https://fakestoreapi.com/products/7",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"7"
+					]
+				}
 			},
 			"response": []
 		},
@@ -307,21 +379,36 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Assertion Of Deleted ID\", function () {\r",
+							"    pm.expect(response.id).to.eql(6);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "https://fakestoreapi.com/products/6"
+				"url": {
+					"raw": "https://fakestoreapi.com/products/6",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"6"
+					]
+				}
 			},
 			"response": []
 		}

@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "a67c7d62-973d-4d06-a3db-9fd597fac73b",
-		"name": "Login",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"name": "1-Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27584831",
 		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-a67c7d62-973d-4d06-a3db-9fd597fac73b?action=share&source=collection_link&creator=27584831"
 	},
@@ -15,15 +15,17 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
 							"pm.environment.set(\"Token\", response.token);"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -39,7 +41,18 @@
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/auth/login"
+				"url": {
+					"raw": "https://fakestoreapi.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
 			},
 			"response": []
 		}

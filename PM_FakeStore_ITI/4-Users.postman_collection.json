@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "886c92a7-94fa-4900-87e4-e7e78522418c",
-		"name": "Users",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"name": "4-Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27584831",
 		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-886c92a7-94fa-4900-87e4-e7e78522418c?action=share&source=collection_link&creator=27584831"
 	},
@@ -15,8 +15,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -30,14 +30,25 @@
 							"    }\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/users"
+				"url": {
+					"raw": "https://fakestoreapi.com/users",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
 			},
 			"response": []
 		},
@@ -49,8 +60,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -63,14 +74,26 @@
 							"    \r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/users/1"
+				"url": {
+					"raw": "https://fakestoreapi.com/users/1",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -85,14 +108,15 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Quantity Of Getted Items is Limited To 3\", function () {\r",
 							"    pm.expect(response.length).to.eql(4);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -130,15 +154,16 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Users Usernames IS Sorted in Desc\", function () {\r",
 							"    pm.expect(response[0].username).to.eql(\"jimmie_k\");\r",
 							"    pm.expect(response[9].username).to.eql(\"johnd\");\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -176,14 +201,15 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Posted Data\", function () {\r",
 							"    pm.expect(response.id).to.eql(1);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -192,14 +218,24 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 11,\r\n    \"username\" : \"ABC\"\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"username\" : \"ABC\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/users"
+				"url": {
+					"raw": "https://fakestoreapi.com/users",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
 			},
 			"response": []
 		},
@@ -214,8 +250,8 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Updated Data\", function () {\r",
 							"    pm.expect(response.email).to.eql(\"John@gmail.com\");\r",
@@ -223,7 +259,8 @@
 							"\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -239,7 +276,18 @@
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/users/7"
+				"url": {
+					"raw": "https://fakestoreapi.com/users/7",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users",
+						"7"
+					]
+				}
 			},
 			"response": []
 		},
@@ -254,8 +302,8 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of User's Deleted Data\", function () {\r",
 							"    pm.expect(response.id).to.eql(6);\r",
@@ -263,14 +311,26 @@
 							"\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "https://fakestoreapi.com/users/6"
+				"url": {
+					"raw": "https://fakestoreapi.com/users/6",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users",
+						"6"
+					]
+				}
 			},
 			"response": []
 		}

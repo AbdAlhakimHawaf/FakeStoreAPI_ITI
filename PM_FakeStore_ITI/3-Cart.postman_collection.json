@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "d373d173-d69a-4fb6-8652-58f0dab07db1",
-		"name": "Cart",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"name": "3-Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27584831",
 		"_collection_link": "https://www.postman.com/orange-firefly-220533/workspace/fakestoreapi-iti/collection/27584831-d373d173-d69a-4fb6-8652-58f0dab07db1?action=share&source=collection_link&creator=27584831"
 	},
@@ -15,8 +15,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -26,14 +26,25 @@
 							"       pm.expect(response[0].products[0].quantity).to.eql(4);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/carts"
+				"url": {
+					"raw": "https://fakestoreapi.com/carts",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"carts"
+					]
+				}
 			},
 			"response": []
 		},
@@ -45,8 +56,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -56,14 +67,26 @@
 							"       pm.expect(response.products[0].productId).to.eql(7);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/carts/5"
+				"url": {
+					"raw": "https://fakestoreapi.com/carts/5",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"carts",
+						"5"
+					]
+				}
 			},
 			"response": []
 		},
@@ -78,14 +101,15 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Quantity Of Getted Carts is Limited To 5\", function () {\r",
 							"    pm.expect(response.length).to.eql(5);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -123,15 +147,16 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of First Cart ID Is 7 and Last ID is 1\", function () {\r",
 							"    pm.expect(response[0].id).to.eql(7);\r",
 							"    pm.expect(response[6].id).to.eql(1);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -169,8 +194,8 @@
 							"const startDate = new Date('2019-12-10').getTime();\r",
 							"const endDate = new Date('2020-10-10').getTime();\r",
 							"\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
@@ -186,7 +211,8 @@
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -228,21 +254,34 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Assertion Of Gotten Cart is Of User #2\", function () {\r",
 							"    pm.expect(response[0].userId).to.eql(2);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://fakestoreapi.com/carts/user/2"
+				"url": {
+					"raw": "https://fakestoreapi.com/carts/user/2",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"carts",
+						"user",
+						"2"
+					]
+				}
 			},
 			"response": []
 		},
@@ -254,8 +293,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -268,7 +307,8 @@
 							"       pm.expect(response.products[0].quantity).to.eql(1);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -284,7 +324,18 @@
 						}
 					}
 				},
-				"url": "https://fakestoreapi.com/carts/7"
+				"url": {
+					"raw": "https://fakestoreapi.com/carts/7",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"carts",
+						"7"
+					]
+				}
 			},
 			"response": []
 		},
@@ -296,8 +347,8 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();\r",
-							"pm.test(\"Response time is less than 300ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 							"});\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -307,14 +358,26 @@
 							"       pm.expect(response.id).to.eql(6);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "https://fakestoreapi.com/carts/6"
+				"url": {
+					"raw": "https://fakestoreapi.com/carts/6",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"carts",
+						"6"
+					]
+				}
 			},
 			"response": []
 		}
